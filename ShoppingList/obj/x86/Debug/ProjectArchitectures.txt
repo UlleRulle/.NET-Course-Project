@@ -1,0 +1,1 @@
+C:\Users\Ulrik\source\repos\ConsoleDatabaseContext\ShoppingList\ShoppingList.csproj;x86

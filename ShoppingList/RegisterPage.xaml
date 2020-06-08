@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="ShoppingList.RegisterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShoppingList"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Frame Name="RegisterPageFrame">
+            <Grid VerticalAlignment="Center" Width="600">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Registration" FontSize="40" Margin="194,-104,190,104.6" />
+                <TextBox x:Name="txtUserName" Grid.Row="0" PlaceholderText="Enter your username" Margin="8,25,8,10.2" MaxLength="50"/>
+                <TextBox x:Name="txtFirstName" Grid.Row="1" PlaceholderText="Enter your firstname" Margin="8" MaxLength="50"/>
+                <TextBox x:Name="txtLastName" Grid.Row="2" PlaceholderText="Enter your lastname" Margin="8" MaxLength="50"/>
+                <PasswordBox x:Name="txtPassword" Grid.Row="3" PlaceholderText="Enter your password" Margin="8"/>
+                <PasswordBox x:Name="txtRePassword" Grid.Row="4" PlaceholderText="Enter your password again" Margin="8"/>
+                <Grid Grid.Row="5" Margin="0,20,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnConfirm" Grid.Column="0" Content="Confirm" HorizontalAlignment="Stretch" Margin="8" Click="ConfirmBtnClicked" />
+                    <Button x:Name="btnBack" Grid.Column="1" Content="Back" HorizontalAlignment="Stretch" Margin="8" Click="BackBtnClicked" />
+                </Grid>
+                <TextBlock x:Name="statusMessage" Grid.Row="6" Margin="8" Foreground="Red"/>
+            </Grid>
+        </Frame>
+    </Grid>
+</Page>

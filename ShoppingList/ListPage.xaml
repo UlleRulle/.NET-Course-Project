@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="ShoppingList.ListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShoppingList"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Frame Name="ViewListPageFrame">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="862" Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Height="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="BtnLogout" HorizontalAlignment="Left" Height="34" Margin="20,0,0,0" VerticalAlignment="Top" Width="103" Content="Log out" Click="ClickEventLogOut" />
+                    <TextBlock Grid.Column="1" Text="" HorizontalTextAlignment="Center" Margin="10" x:Name="topText"/>
+                    <Button Grid.Column="2" x:Name="BtnRefresh" HorizontalAlignment="Center" Height="34" Margin="0" VerticalAlignment="Top" Width="103" Content="Refresh" Click="ClickEventPingServer" Visibility="Collapsed" />
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,123,0,122.6" Grid.RowSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="My lists:" Margin="24,-45,170,812"/>
+
+                    <ListView x:Name="MyList" Grid.Column="0" SelectionChanged="OpenSavedShoppingList" ItemsSource="{Binding UserShoppingLists}" Margin="50,0,50,265" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Text="{Binding Title}"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Button Grid.Column="1" Margin="0,256,0,0" HorizontalAlignment="Center" Height="71" VerticalAlignment="Top" Width="260" Content="Save" Click="SaveShoppingList"/>
+                    <Button Grid.Column="1" HorizontalAlignment="Center" Height="34" Margin="0,420,0,0" VerticalAlignment="Top" Width="103" Content="New item" Click="AddNewItemBox" />
+                    <Button Grid.Column="1" HorizontalAlignment="Center" Height="34" Margin="0,473,0,0" VerticalAlignment="Top" Width="103" Content="New list" Click="ClickEventNewList"/>
+                    <Button Grid.Column="1" x:Name="BtnDelete" HorizontalAlignment="Center" Height="35" Margin="0,525,0,0" VerticalAlignment="Top" Width="103" Content="Delete list" Click="ClickEventDeleteList" Visibility="Collapsed"/>
+                    <TextBox Grid.Column="2" x:Name="ListTitle" PlaceholderText="Title" Margin="110,0,88,781" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxLength="50"/>
+                    <!--<ListView Grid.Column="2" Name="ListOfItems" Margin="110,58,88,265" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />-->
+                    <ListView Grid.Column="2" Name="ListOfItems" Margin="110,58,88,265" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentRenderOutsideBounds="False" />
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!--<Button HorizontalAlignment="Center" Height="34" Margin="0,420,0,0" VerticalAlignment="Top" Width="103" Content="New list" Click="ClickEventNewList"/> -->
+                    <!--<Button HorizontalAlignment="Center" Height="34" Margin="0,420,0,0" VerticalAlignment="Top" Width="103" Content="New item" Click="AddNewItemBox" Grid.Column="2"/> -->
+                </Grid>
+            </Grid>
+        </Frame>
+    </Grid>
+</Page>
